@@ -1,3 +1,4 @@
-source 'http://your_gem_server:your_port/'
+source 'http://rubygems.org/'
 
 gem 'itamae'
+gem 'serverspec'
