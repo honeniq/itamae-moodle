@@ -17,6 +17,9 @@ end
   end
 end
 
+directory '/usr/share/nginx/html/' do
+  action :create
+end
 
 git "/usr/share/nginx/html/moodle/" do
   action :sync
