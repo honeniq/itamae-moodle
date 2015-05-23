@@ -24,5 +24,15 @@ git "/usr/share/nginx/html/moodle/" do
   revision "928f14b3cc509b9ad27b3172a8417e2ffe03ce72"
 end
 
+group 'nginx' do
+  gid 2001
+  groupname 'nginx'
+end
+
+user 'nginx' do
+  uid 2001
+  gid 2001
+  username 'nginx'
+end
 
 
