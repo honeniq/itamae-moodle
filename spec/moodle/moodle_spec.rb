@@ -22,3 +22,12 @@ describe "PHP modules" do
     end
   end
 end
+
+describe user('nginx') do
+  it { should exist }
+  it { should belong_to_group 'nginx' }
+end
+
+describe file('/usr/share/nginx/html/moodle') do
+  it { should be_directory }
+end
