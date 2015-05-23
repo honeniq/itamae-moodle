@@ -21,6 +21,15 @@ describe "PHP modules" do
       it { should be_installed }
     end
   end
+
+  describe service('php5-fpm') do
+    it { should be_enabled }
+    it { should be_running }
+  end
+
+  describe file('/var/run/php5-fpm.sock') do
+    it { should exist }
+  end
 end
 
 describe user('nginx') do
