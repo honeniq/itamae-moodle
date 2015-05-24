@@ -8,7 +8,9 @@ Vagrant.configure(2) do |config|
     moodle.vm.network "forwarded_port", guest: 80, host: 8080
     moodle.vm.provision :itamae do | itamae |
       itamae.sudo = true
-      itamae.recipes = ['./recipes/moodle/moodle.rb']
+      itamae.recipes = ['./recipes/moodle/nginx.rb', \
+                        './recipes/moodle/php.rb', \
+                        './recipes/moodle/moodle.rb']
     end
   end
 end

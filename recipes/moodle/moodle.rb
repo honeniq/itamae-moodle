@@ -1,44 +1,8 @@
 require "itamae"
 
 
-group 'nginx' do
-  gid 2001
-  groupname 'nginx'
-end
-
-user 'nginx' do
-  uid 2001
-  gid 2001
-  username 'nginx'
-end
-
 package 'git' do
   action :install
-end
-
-%w{nginx}.each do |pkg|
-  package pkg do
-    action :install
-  end
-end
-
-
-%w{php5-common php5-curl php5-fpm php5-gd php5-intl php5-json php5-pgsql php5-xmlrpc}.each do |pkg|
-  package pkg do
-    action :install
-  end
-end
-
-directory '/usr/share/nginx/' do
-  action :create
-  owner 'nginx'
-  group 'nginx'
-end
-
-directory '/usr/share/nginx/html/' do
-  action :create
-  owner 'nginx'
-  group 'nginx'
 end
 
 git "/usr/share/nginx/html/moodle/" do
