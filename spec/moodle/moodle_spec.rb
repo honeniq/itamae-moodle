@@ -39,4 +39,9 @@ end
 
 describe file('/usr/share/nginx/html/moodle') do
   it { should be_directory }
+  it { should be_owned_by 'nginx' }
+  it { should be_grouped_into 'nginx' }
+  it { should be_readable.by_user('nginx') }
+  it { should be_writable.by_user('nginx') }
+  it { should be_executable.by_user('nginx') }
 end

@@ -1,5 +1,17 @@
 require "itamae"
 
+
+group 'nginx' do
+  gid 2001
+  groupname 'nginx'
+end
+
+user 'nginx' do
+  uid 2001
+  gid 2001
+  username 'nginx'
+end
+
 package 'git' do
   action :install
 end
@@ -17,25 +29,23 @@ end
   end
 end
 
+directory '/usr/share/nginx/' do
+  action :create
+  owner 'nginx'
+  group 'nginx'
+end
+
 directory '/usr/share/nginx/html/' do
   action :create
+  owner 'nginx'
+  group 'nginx'
 end
 
 git "/usr/share/nginx/html/moodle/" do
   action :sync
   repository "git://git.moodle.org/moodle.git"
   revision "928f14b3cc509b9ad27b3172a8417e2ffe03ce72"
-end
-
-group 'nginx' do
-  gid 2001
-  groupname 'nginx'
-end
-
-user 'nginx' do
-  uid 2001
-  gid 2001
-  username 'nginx'
+  user 'nginx'
 end
 
 
