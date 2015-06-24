@@ -45,3 +45,7 @@ describe file('/usr/share/nginx/html/moodle') do
   it { should be_writable.by_user('nginx') }
   it { should be_executable.by_user('nginx') }
 end
+
+describe file('/etc/nginx/sites-available/default') do
+  its(:content) { should match /\/usr\/share\/nginx\/html\/moodle/ }
+end

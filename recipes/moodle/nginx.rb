@@ -30,3 +30,9 @@ directory '/usr/share/nginx/html/' do
   owner 'nginx'
   group 'nginx'
 end
+
+remote_file '/etc/nginx/sites-available/default' do
+  owner 'nginx'
+  group 'nginx'
+  source 'files/default'
+end
