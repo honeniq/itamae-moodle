@@ -1,5 +1,9 @@
 require 'itamae'
 
+execute "apt-get update" do
+  command "apt-get update"
+end
+
 group 'nginx' do
   gid 2001
   groupname 'nginx'
